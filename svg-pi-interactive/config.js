@@ -25,7 +25,7 @@ const updateSliderValue = (events, el, prop, label, cb) => {
         el.parentNode.querySelector(
           `.svg-pi-controls-val`
         ).innerText = `${rootStyle.getPropertyValue(prop)}${label}`;
-        if (typeof cb === 'function') cb();
+        if (typeof cb === "function") cb();
       });
     });
 };
@@ -88,12 +88,12 @@ updateSliderValue(
   `px indicator-size`,
   () => {
     let trackSize = rootStyle.getPropertyValue(`--svg-pi-track-size`),
-        indicatorSize = rootStyle.getPropertyValue(`--svg-pi-indicator-size`),
-        svgPiSize = rootStyle.getPropertyValue(`--svg-pi-size`)
-    if(indicatorSize > trackSize) {
-      root.style.setProperty(`--svg-pi-radius`, (svgPiSize/2) - indicatorSize)
+      indicatorSize = rootStyle.getPropertyValue(`--svg-pi-indicator-size`),
+      svgPiSize = rootStyle.getPropertyValue(`--svg-pi-size`);
+    if (indicatorSize > trackSize) {
+      root.style.setProperty(`--svg-pi-radius`, svgPiSize / 2 - indicatorSize);
     } else {
-      root.style.setProperty(`--svg-pi-radius`, (svgPiSize/2) - trackSize)
+      root.style.setProperty(`--svg-pi-radius`, svgPiSize / 2 - trackSize);
     }
   }
 );
@@ -109,20 +109,3 @@ updateSliderValue(
   `--svg-pi-indicator-color`,
   ``
 );
-
-// svgPiTrackPaddingSlider &&
-//   svgPiTrackPaddingSlider.addEventListener(`input`, (e) => {
-//     let trackSize = parseInt(rootStyle.getPropertyValue(`--svg-pi-track-size`));
-//     if (svgPiTrackPaddingSlider.value >= trackSize) {
-//       document.querySelector(
-//         `.svg-pi-indicator`
-//       ).style.strokeWidth = `${trackSize}px`;
-//     } else {
-//       document.querySelector(`.svg-pi-indicator`).style.strokeWidth = `${
-//         trackSize - svgPiTrackPaddingSlider.value
-//       }px`;
-//     }
-//     svgPiTrackPaddingSlider.parentNode.querySelector(
-//       `.svg-pi-controls-val`
-//     ).innerText = `${svgPiTrackPaddingSlider.value}px track-padding`;
-//   });
