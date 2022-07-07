@@ -12,7 +12,7 @@ const ProgressBar = (props) => {
     label = `Loading...`,
     labelColor = `#333`,
     spinnerMode = false,
-    spinnerSpeed = 0
+    spinnerSpeed = 1
   } = props
 
   const center = size / 2,
@@ -20,7 +20,7 @@ const ProgressBar = (props) => {
         dashArray = 2 * Math.PI * radius,
         dashOffset = dashArray * ((100 - progress) / 100)
 
-  let hideLabel = (size < 100 || !label.length) ? true : false
+  let hideLabel = (size < 100 || !label.length || spinnerMode) ? true : false
 
   return (
     <>
@@ -57,7 +57,6 @@ const ProgressBar = (props) => {
             strokeLinecap={indicatorCap}
           />
         </svg>
-
 
         {!hideLabel && (
           <div 
