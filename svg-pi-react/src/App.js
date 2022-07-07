@@ -34,8 +34,7 @@ const App = () => {
         <div
           className="App-content"
         >
-          <p>The main page of the app that appears after the <strong title="ProgressBar">SVG Pi</strong> hits 100%.</p>
-        </div>
+          <p>This main page of the app shows up as soon as the <strong title="ProgressBar">SVG Pi</strong> hits 100%.</p>        </div>
       )}
     </div>
   )
