@@ -1,0 +1,112 @@
+/*
+ * The basic reset
+ *
+ * Zero-down certain things to make them look identical on 
+ * different browsers.
+ *
+ * @since 06/07/22
+ */
+
+body {
+  font: 1em/1.618 sans-serif;
+  margin: 0;
+  color: #333;
+}
+
+svg {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+/*
+ * General utitlities
+ *
+ * Add general utilities like layout, type, and more to 
+ * support the demonstration. 
+ *
+ * @since 06/07/22
+ */
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.colophon {
+  margin-top: 1em;
+  text-align: center;
+}
+
+.colophon h2 + h4 {
+  margin-top: -1em;
+  color: #888;
+  font-weight: normal;
+}
+
+/*
+ * SVG Progress Indicator
+ *
+ * Set-up the indicator using SVG attributes that are 
+ * supported as properties in CSS.
+ *
+ * @since 06/07/22
+ */
+
+.svg-pi {
+  width: 100px;
+  height: 100px;
+  transform: rotate(-90deg); /* Fix the orientation */
+}
+
+.svg-pi-track {
+  stroke: #ddd;
+}
+
+.svg-pi-indicator {
+  stroke: #07c;
+  stroke-dasharray: 251.2px; /* DashArray = Track's or indicator's Circumference */
+  stroke-linecap: round;
+}
+
+.svg-pi-track,
+.svg-pi-indicator {
+  cx: 50px;
+  cy: 50px;
+  r: 40px;
+  fill: transparent;
+  stroke-width: 10px;
+}
+
+/*
+ * SVG Pi variations
+ *
+ * Variations based on calculations for different progress 
+ * values for the indicator.
+ *
+ * @since 06/07/22
+ */
+
+/* Progress: 25% */
+.svg-pi-25 .svg-pi-indicator {
+  stroke-dashoffset: 188.4px; /* DashOffset = DashArray * ((100 - progress)/100) */
+}
+
+/* Progress: 43% */
+.svg-pi-43 .svg-pi-indicator {
+  stroke-dashoffset: 143.184px;
+}
+
+/* Progress: 73% */
+.svg-pi-73 .svg-pi-indicator {
+  stroke-dashoffset: 67.824px;
+}
+
+/* Progress: 40% */
+.svg-pi-40 .svg-pi-indicator {
+  stroke-dashoffset: 150.72px;
+}

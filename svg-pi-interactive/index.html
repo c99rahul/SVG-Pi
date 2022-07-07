@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG Circular Progress Indicator: An interactive demo</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <svg class="svg-pi">
+        <circle class="svg-pi-track"></circle>
+        <circle class="svg-pi-indicator"></circle>
+      </svg><!-- .svg-pi -->
+      
+      <div class="svg-pi-controls">
+        <div class="svg-pi-controls-row">
+          <input class="svg-pi-indicator-slider" type="range" min="0" max="100" step="1">
+        </div><!-- .svg-pi-controls-row -->
+        <div class="svg-pi-controls-row">
+          <input class="svg-pi-size-slider" type="range" min="25" max="300" step="5">
+        </div><!-- .svg-pi-controls-row -->
+        <div class="svg-pi-controls-row">
+          <input class="svg-pi-track-size-slider" type="range" min="1" max="25" step="1">
+        </div><!-- .svg-pi-controls-row -->
+        <div class="svg-pi-controls-row">
+          <input class="svg-pi-track-padding-slider" type="range" value="0" min="0" max="25" step="1">
+        </div><!-- .svg-pi-controls-row -->
+        <div class="svg-pi-controls-row svg-pi-controls-row--color">
+          <input class="svg-pi-track-color-picker" type="color" value="#dddddd" title="Track color">
+        </div><!-- .svg-pi-controls-row -->
+        <div class="svg-pi-controls-row svg-pi-controls-row--color">
+          <input class="svg-pi-indicator-color-picker" type="color" value="#0077cc" title="Indicator color">
+        </div><!-- .svg-pi-controls-row -->
+      </div><!-- .svg-pi-controls -->
+    </div><!-- .container -->
+  </body>
+  <script src="config.js"></script>
+</html>

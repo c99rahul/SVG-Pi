@@ -1,0 +1,146 @@
+/**
+ * Settings
+ *
+ * Custom properties that construct the SVG Pi with the 
+ * help of CSS's presentational SVG properties.
+ *
+ * @since 06/07/22
+ */
+
+:root {
+  --svg-pi-size: 150;
+  --svg-pi-center: calc(var(--svg-pi-size) / 2);
+  --svg-pi-track-size: 8;
+  --svg-pi-indicator-size: var(--svg-pi-track-size);
+  --svg-pi-track-color: #ddd;
+  --svg-pi-radius: calc((var(--svg-pi-size) / 2) - var(--svg-pi-track-size));
+  --svg-pi-dashArray: calc(2 * 3.14 * var(--svg-pi-radius));
+  --svg-pi-dashOffset: calc(var(--svg-pi-dashArray) * ((100 - var(--svg-pi-progress)) / 100));
+  --svg-pi-progress: 15;
+  --svg-pi-indicator-color: #07c;
+}
+
+/*
+ * The basic reset
+ *
+ * Zero-down certain things to make them look identical on 
+ * different browsers.
+ *
+ * @since 06/07/22
+ */
+
+body {
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  font: 1em/1.618 sans-serif;
+}
+
+svg {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+input[type="color"] {
+  -webkit-appearance: none;
+  overflow: hidden;
+  border: 2px solid;
+  height: 2.5em;
+  width: 2.5em;
+  border-radius: 50%;
+  padding: 0;
+  overflow: hidden;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+}
+
+/*
+ * SVG Progress Indicator
+ *
+ * Set-up the indicator using SVG attributes that are 
+ * supported as properties in CSS.
+ *
+ * @since 06/07/22
+ */
+
+.svg-pi {
+  width: calc(var(--svg-pi-size) * 1px);
+  height: calc(var(--svg-pi-size) * 1px);
+  transform: rotate(-90deg);
+}
+
+.svg-pi-track {
+  stroke: var(--svg-pi-track-color);
+  stroke-width: calc(var(--svg-pi-track-size) * 1px);
+}
+
+.svg-pi-indicator {
+  stroke: var(--svg-pi-indicator-color);
+  stroke-width: var(--svg-pi-indicator-size);
+}
+
+.svg-pi,
+.svg-pi-track,
+.svg-pi-indicator {
+  fill: transparent;
+}
+
+.svg-pi-track,
+.svg-pi-indicator {
+  cx: var(--svg-pi-center);
+  cy: var(--svg-pi-center);
+  r: var(--svg-pi-radius);
+}
+
+.svg-pi-indicator {
+  transition: stroke-dashoffset 0.25s ease-in-out;
+  stroke-dasharray: var(--svg-pi-dashArray);
+  stroke-dashoffset: var(--svg-pi-dashOffset);
+}
+
+/*
+ * General utitlities
+ *
+ * Add general utilities like layout, type, and more to 
+ * support the demonstration. 
+ *
+ * @since 06/07/22
+ */
+
+.container {
+  padding: 2em;
+}
+
+.svg-pi-controls {
+  position: fixed;
+  left: 2em;
+  top: 2em;
+}
+
+.svg-pi-controls-label {
+  display: block;
+}
+
+.svg-pi-controls-val {
+  display: block;
+  text-align: center;
+  font-size: 0.75em;
+}
+
+.svg-pi-controls-row {
+  margin-bottom: 1em;
+}
+
+.svg-pi-controls-row--color {
+  align-items: center;
+  gap: 1em;
+  display: flex;
+}

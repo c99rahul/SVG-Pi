@@ -1,0 +1,12 @@
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;  
+}
+
+.App-content {
+  max-width: 400px;
+  text-align: center;
+  font-size: 1.2em;
+}
