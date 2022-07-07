@@ -16,6 +16,12 @@
   transform: rotate(-90deg); /* Fix the orientation */
 }
 
+/* Animated spinner version */
+.svg-pi-indicator--spinner {
+  animation: spinner .75s linear infinite;
+  transform-origin: center;
+}
+
 .svg-pi-label {
   position: absolute;
   top: 50%;
@@ -37,4 +43,14 @@
 .svg-pi-label__loading,
 .svg-pi-label__progress {
   display: block;
+}
+
+/* Spinner animation */
+@keyframes spinner {
+  0% {
+    transform: rotate(0)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
 }
