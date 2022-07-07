@@ -1,9 +1,8 @@
 import {useState, useEffect} from 'react'
-import './App.css'
 import ProgressBar from './components/ProgressBar/ProgressBar'
+import './App.css'
 
 const App = () => {
-
   const [loading, setLoading] = useState(true)
   const [progress, setProgress] = useState(0)
   const loadingDuration = 3000 // 3 seconds
@@ -22,6 +21,10 @@ const App = () => {
       clearTimeout(loadingTimeout)
     }
   }, [progress, loading])
+
+  useEffect(() => {
+    document.title = "SVG Pi implemented in React"
+  }, [])
 
   return (
     <div className="App">
